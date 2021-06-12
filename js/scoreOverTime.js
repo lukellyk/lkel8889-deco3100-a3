@@ -24,7 +24,7 @@ function makePlot2(datetime,redditAvg){
         {
             x: datetime,
             y: redditAvg,
-            connectgaps: true
+            // connectgaps: true
         }
     ];
 
