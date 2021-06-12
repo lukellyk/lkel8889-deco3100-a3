@@ -1,13 +1,13 @@
 const datasource = "https://raw.githubusercontent.com/lukellyk/lkel8889-deco3100-a3/master/data/trump_and_reddit_data.csv"
 
-function loadData () {
+function loadData1 () {
     Plotly.d3.csv(datasource, function (data) {
         // console.log(data);
-      processData(data);
+      processData1(data);
     });
 }
 
-function processData(allRows) {
+function processData1(allRows) {
     let datetime = [], redditCount = [], tweet = [], redditAvg = [], sentiment = [];
     for (let i = 0; i < allRows.length; i++) {
         let row = allRows[i];
@@ -19,10 +19,10 @@ function processData(allRows) {
         sentiment.push(row['sentiment']);
     }
     // initiate plot creation function
-    makePlot(datetime,redditCount,tweet,redditAvg,sentiment);
+    makePlot1(datetime,redditCount,tweet,redditAvg,sentiment);
 } 
 
-function makePlot(datetime,redditCount,tweet,redditAvg,sentiment){
+function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
     var data = [
     {
         x: sentiment,
@@ -49,7 +49,7 @@ function makePlot(datetime,redditCount,tweet,redditAvg,sentiment){
             }
         },
         yaxis: {
-            range: [0,1000],
+            range: [0,2500],
             title: {
                 text: 'Avg Reddit Score',
                 font: {
@@ -84,4 +84,4 @@ function makePlot(datetime,redditCount,tweet,redditAvg,sentiment){
     Plotly.newPlot('trumpRedditPlot', data, layout, config);
 }
 
-loadData();
+loadData1();
