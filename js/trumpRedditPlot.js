@@ -51,17 +51,19 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
         yaxis: {
             range: [0,2500],
             title: {
-                text: 'Avg Reddit Score',
+                text: 'Avg Reddit Score of Post',
                 font: {
-                    color: '#ffffff'
+                    color: '#ffffff',
+                    size: 20
                 }
             }
         },
         xaxis: {
             title: {
-                text: 'Sentiment',
+                text: 'Sentiment Value',
                 font: {
-                    color: '#ffffff'
+                    color: '#ffffff',
+                    size: 20
                 }
             }
         },

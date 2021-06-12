@@ -1,34 +1,70 @@
-const datasource = "https://raw.githubusercontent.com/lukellyk/lkel8889-deco3100-a3/master/data/trump_and_reddit_data.csv"
+const datasource2 = "https://raw.githubusercontent.com/lukellyk/lkel8889-deco3100-a3/master/data/reddit_score_rolling_avg.csv"
 
 function loadData2 () {
-    Plotly.d3.csv(datasource, function (data) {
+    Plotly.d3.csv(datasource2, function (data) {
         // console.log(data);
       processData2(data);
     });
 }
 
 function processData2(allRows) {
-    let datetime = [], redditAvg = [];
+    let date = [], redditAvg = [];
     for (let i = 0; i < allRows.length; i++) {
         let row = allRows[i];
         //separate data by column headers
-        datetime.push(row['datetime']);
-        redditAvg.push(row['redditAvg']);
+        date.push(row['day']);
+        redditAvg.push(row['rolling avg']);
     }
     // initiate plot creation function
-    makePlot2(datetime,redditAvg);
+    makePlot2(date,redditAvg);
 } 
 
-function makePlot2(datetime,redditAvg){
+function makePlot2(date,redditAvg){
     var data = [
         {
-            x: datetime,
+            x: date,
             y: redditAvg,
-            // connectgaps: true
+            hovertemplate: '<b>Avg Reddit Score on Day: </b> %{y}<extra></extra>',
+            mode: 'lines',
+            line: {
+                color: '#ffffff'
+            }
         }
     ];
 
-    var layout = {};
+    var layout = {
+        title: {
+            text: "Average Reddit Score Over Time",
+            font: {
+                family: 'jubilat',
+                size: 30,
+                color: '#ffffff'
+            }
+        },
+        xaxis: {
+            showticklabels: false,
+            showgrid: false,
+            title: 'Date',
+            titlefont: {
+                color: '#ffffff',
+                size: 20
+            }
+        },
+        yaxis: {
+            gridcolor: '#1D3557',
+            tickfont: {
+                color: '#ffffff'
+            },
+            title: 'Reddit Score',
+            titlefont: {
+                color: '#ffffff',
+                size: 20
+            }
+        },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+    };
+
 
     var config = {
         responsive: true,
