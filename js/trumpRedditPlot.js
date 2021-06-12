@@ -45,7 +45,6 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
             font: {
                 family: 'jubilat',
                 size: 30,
-                color: '#000000'
             }
         },
         yaxis: {
@@ -53,7 +52,6 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
             title: {
                 text: 'Avg Reddit Score of Post',
                 font: {
-                    color: '#ffffff',
                     size: 20
                 }
             }
@@ -62,7 +60,6 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
             title: {
                 text: 'Sentiment Value',
                 font: {
-                    color: '#ffffff',
                     size: 20
                 }
             },
