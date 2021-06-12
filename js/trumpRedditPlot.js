@@ -65,7 +65,8 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
                     color: '#ffffff',
                     size: 20
                 }
-            }
+            },
+            range: [-1, 1]
         },
         hoverlabel: {
             font: {

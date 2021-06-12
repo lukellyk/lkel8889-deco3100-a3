@@ -24,7 +24,7 @@ function makePlot2(date,redditAvg){
         {
             x: date,
             y: redditAvg,
-            hovertemplate: '<b>Avg Reddit Score on Day: </b> %{y}<extra></extra>',
+            hovertemplate: '<b>Avg Reddit Score on %{x}: </b> %{y}<extra></extra>',
             mode: 'lines',
             line: {
                 color: '#ffffff'
