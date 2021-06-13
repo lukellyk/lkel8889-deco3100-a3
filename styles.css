@@ -66,7 +66,7 @@
     transform: translateY(-50%);
 }
 
-h1, h2, p, fine-print {
+h1, h2, p, fine-print, li {
     font-family: jubilat, serif;
 }
 
@@ -90,9 +90,8 @@ fine-print {
     margin-bottom: 1vh;
 }
 
-img {
-    max-width: 400px;
-    max-height: 100%;
+li {
+    padding-bottom: 1em;
 }
 
 @media only screen and (max-width: 1370px) {
