@@ -54,7 +54,7 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
             // define custom range so outliers don't make graph somewhat indecipherable
             range: [0,2500],
             title: {
-                text: 'Avg Reddit Score of Post',
+                text: 'Avg. Reddit Score of Post',
                 font: {
                     size: 20
                 }

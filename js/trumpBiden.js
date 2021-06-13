@@ -25,14 +25,17 @@ function makePlot3(days,trump,biden){
         {
             name: 'Trump',
             x: days,
-            y: trump
+            y: trump,
+            line: {
+                color: '#E63946'
+            }
         },
         {
             name: 'Biden',
             x: days,
             y: biden,
             line:{
-                color: '#E63946'
+                color: '#457B9D'
             }
         }
     ];
@@ -41,7 +44,7 @@ function makePlot3(days,trump,biden){
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
         title: {
-            text: "Avg Reddit Score in First <br>100 Days of Presidency",
+            text: "Average Reddit Score in First <br>100 Days of Presidency",
             font: {
                 family: 'jubilat',
                 size: 30,
@@ -54,7 +57,7 @@ function makePlot3(days,trump,biden){
             }
         },
         yaxis: {
-            title: 'Reddit Score',
+            title: 'Avg. Reddit Score',
             titlefont: {
                 size: 20
             }

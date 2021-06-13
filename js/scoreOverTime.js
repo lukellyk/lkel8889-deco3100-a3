@@ -43,7 +43,12 @@ function makePlot2(date,redditAvg){
             }
         },
         xaxis: {
-            showticklabels: false,
+            tickmode: 'array',
+            // define tick values on the bottom (dates)
+            tickvals: ['06/01/2017','01/01/2018','01/01/2019','01/01/2020','01/01/2021'],
+            tickfont: {
+                color: '#ffffff'
+            },
             showgrid: false,
             title: 'Date',
             titlefont: {
@@ -56,7 +61,7 @@ function makePlot2(date,redditAvg){
             tickfont: {
                 color: '#ffffff'
             },
-            title: 'Reddit Score',
+            title: 'Avg. Reddit Score',
             titlefont: {
                 color: '#ffffff',
                 size: 20
