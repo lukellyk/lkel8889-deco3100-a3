@@ -41,7 +41,7 @@ function makePlot3(days,trump,biden){
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
         title: {
-            text: "Avg Reddit Score in First 100 Days of Presidency",
+            text: "Avg Reddit Score in First <br>100 Days of Presidency",
             font: {
                 family: 'jubilat',
                 size: 30,
