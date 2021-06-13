@@ -7,6 +7,7 @@
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script> 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://use.typekit.net/mgb5dhz.css">
+    <!-- favicon from https://www.boston.com/culture/entertainment/2016/05/12/can-now-send-donald-trump-emojis-thanks-ship-snow-yo-man/ -->
     <link rel="shortcut icon" type="image/png" href="img/trump.png"/>
     <title>Trump & Reddit</title>
 </head>
@@ -15,11 +16,11 @@
         <div class="flex-item"></div>
         <div class="flex-item">
             <div class="inner-flex-container">
-                <div class="inner-flex-item" style="background-color: #E63946;">
+                <div class="inner-flex-item" style="background-color: #A8DADC;">
                     <h1>Trump & Reddit 🇺🇸</h1><br>
                     <h2 style="color: #ffffff;">By Luke Kelly | lkel8889</h2>
                 </div>
-                <div class="inner-flex-item" style="background-color: #A8DADC;">
+                <div class="inner-flex-item" style="background-color: #E63946;">
                     <p>
                         <b>Donald J Trump</b>, president of the United States of America from 2017 - 2021, had a long standing and controversial stint on the social media platform Twitter before and all throughout his presidency. Accused of supporting the far-right due to his actions of refusing to condemn white supremacists (such as David Duke and the KKK) and retweeting posts from accounts born with racist intent, he strayed far from what one might deem to be politically correct. 
                         <br><br>
@@ -37,28 +38,33 @@
                 <div class="inner-flex-item" style="background: url('https://github.com/lukellyk/lkel8889-deco3100-a3/raw/9bc1bfe39060ad8f0a1eea346f8f8501ee68bbb3/img/reddit.jpg') no-repeat; background-size: cover; background-position: center center;">
                 </div>
                 <div class="break"></div>
-                <div class="inner-flex-item" style="background-color: #E63946;">
-                    test
-                </div>
-                <div class="inner-flex-item" style="background-color: #A8DADC;">
-                    <div id="trumpRedditPlot" style="height: 100%;"></div>
+                <div class="inner-flex-item" style="background-color: #A8DADC; display: table;">
+                    <div class="centre-plot" id="trumpRedditPlot" style="min-height: 100%;"></div>
                     <script src='js/trumpRedditPlot.js'></script>
+                </div>
+                <div class="inner-flex-item" style="background-color: #E63946;">
+                    <p>The data, which compares the pre-calculated sentiment of the tweet to the average score the tweet received when posted across Reddit shows that there is no clear correlation between the two factors. 
+                    <br><br>
+                    This paints a picture to show that no matter what the sentiment or the intention of the tweet was, it became a matter of conversation for the general public and was hence shared to Reddit in order for a conversation to take place on the various subreddits. Anthropologists concluded early on that the popularity and conversation-starting nature of Trump’s tweets could be attributed to the fact that he ‘always seems ahead of everyone else in framing the message (in the informational sense)’ [Caton & Stolee, 2018]. While other public figures took time to carefully craft politically correct and factually-based messages for their constituents, Trump took the stance that quickly conveying information in a short form was the best way to tackle these situations. This is made obvious through frequent selling and grammatical errors and the often spreading of inaccurate or just wrong information, often in times when a concise and accurate message would’ve been much more effective.
+                    <br><br>
+                    These chaotic tweets were received well by his far-right supporters and debated fiercely by those who didn’t believe he was fit for the job. Reddit provided a perfect base of operations for these conversations to take place. While his supporters could rally around him and discuss their positive views on his posts, conversely, their respective opponents could tear apart the tweet with reasons why they didn’t agree with it or why it was inaccurate, creating very strong echo chambers. It was through the combination of these echo chambers in subreddits such as r/politics that Reddit was truly characterised. Trump’s tweets would be posted and this would spark fierce debate about the topic often devolving into childish arguments before moderators would be forced to take action and archive or delete threads in order to manage the virtual riots, a poetic foreshadowing for what was to come in reality at the end of the Trump presidency.</p>
+
                 </div>
                 <div class="break"></div>
                 <div class="inner-flex-item" style="background-color: #457B9D;">
-                    <div id="scoreOverTime" style="height: 100%;"></div>
+                    test1
+                </div>
+                <div class="inner-flex-item" style="background-color: #1D3557; display: table;">
+                    <div class="centre-plot" id="scoreOverTime" style="height: 100%;"></div>
                     <script src='js/scoreOverTime.js'></script>
                 </div>
-                <div class="inner-flex-item" style="background-color: #1D3557;">
-                    test1
-                </div>
                 <div class="break"></div>
+                <div class="inner-flex-item" style="background-color: #A8DADC; display: table;">
+                    <div class="centre-plot" id="trumpBiden" style="height: 100%;"></div>
+                    <script src='js/trumpBiden.js'></script>
+                </div>
                 <div class="inner-flex-item" style="background-color: #E63946;">
                     test1
-                </div>
-                <div class="inner-flex-item" style="background-color: #A8DADC;">
-                    <div id="trumpBiden" style="height: 100%;"></div>
-                    <script src='js/trumpBiden.js'></script>
                 </div>
             </div>
             <!-- look mum I'm fun and relatable -->

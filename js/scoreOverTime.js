@@ -51,7 +51,7 @@ function makePlot2(date,redditAvg){
             }
         },
         yaxis: {
-            gridcolor: '#1D3557',
+            gridcolor: '#457B9D',
             tickfont: {
                 color: '#ffffff'
             },
