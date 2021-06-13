@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>Reddit Counter</title>
+</head>
+<body>
+
+    <button onclick="loadCSV()">Load Data</button>
+    <button onclick="printObj(dataObj)">Show JSON in Console</button>
+    <button onclick="exportToJsonFile(dataObj.tweets)">Export to JSON</button>
+
+    <script>
+        let dataSource = 'data/trump_presidential_tweets.csv'
+        let apiPrefix = 'https://api.reddit.com/search?q=url:'
+        let twitterPrefix = 'https://twitter.com/realDonaldTrump/status/'
+        const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length
+        let dataObj = {
+            tweets: {}
+        }
+        let objCounter = 0;
+        const sleep = (milliseconds) => {
+            return new Promise(resolve => setTimeout(resolve, milliseconds))
+        }
+
+        function loadCSV () {
+            d3.csv(dataSource, function(d) {
+                return {
+                    id : d.id,
+                    datetime : d.datetime,
+                    text : d.text,
+                };
+            }).then(async function(data) {
+
+                for (let i = 0; i < data.length; i++){
+                    getReddit(data[i].id,data[i].datetime,data[i].text)
+
+                    console.log(((i/data.length)*100)+ "% done 🎉")
+
+                    await sleep(250)
+                }
+
+                console.log("Done!")
+
+            });
+        }
+
+        async function getReddit(tweetID, datetime, tweetText) {
+            let url = apiPrefix+twitterPrefix+tweetID;
+            let response = await fetch(url);
+            let data = await response.json();
+            averageUpvote(data,tweetID, datetime, tweetText);
+        }
+
+        function averageUpvote(data, tweetID, datetime, tweetText) {
+            let scores = [];
+
+            for (let i = 0; i < data.data.children.length; i++) {
+                scores.push(data.data.children[i].data.ups);
+            }
+
+            let avgScore = arrAvg(scores);
+
+            pushToObject(data.data.children.length,tweetID,avgScore,datetime,tweetText);
+        }
+
+        function pushToObject(count,tweetID,avgScore,datetime,tweetText) {
+
+            dataObj.tweets[objCounter] = {
+                id: tweetID,
+                datetime: datetime,
+                tweet: tweetText,
+                redditCount: count,
+                redditAvg: avgScore
+            }
+
+            objCounter++
+
+        }
+
+        function printObj(object) {
+            console.log(object)
+        };
+
+        "use strict";
+
+        function exportToJsonFile(jsonData) {
+            let dataStr = JSON.stringify(jsonData);
+            let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+
+            let exportFileDefaultName = 'data.json';
+
+            let linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        }
+        
+
+    </script>
+</body>
+</html>
