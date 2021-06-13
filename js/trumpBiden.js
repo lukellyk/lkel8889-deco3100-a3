@@ -48,13 +48,13 @@ function makePlot3(days,trump,biden){
             }
         },
         xaxis: {
-            title: 'Reddit Score',
+            title: 'Days Since Start of Presidency',
             titlefont: {
                 size: 20
             }
         },
         yaxis: {
-            title: 'Days Since Start of Presidency',
+            title: 'Reddit Score',
             titlefont: {
                 size: 20
             }
