@@ -24,6 +24,7 @@
     flex: 1 1 auto;
 }
 
+/* inner flexbox */
 .inner-flex-container {
     display: flex;
     flex-direction: row;
@@ -33,6 +34,7 @@
     align-items: flex-start;
     }
 
+/* boxes housing content */
 .inner-flex-item {
     border-radius: 25px;
     margin: 10px;
@@ -41,6 +43,7 @@
     position: relative;
 }
 
+/* set boxes to change size depending if they're odd or even */
 .inner-flex-item:nth-child(odd) {
     order: 0;
     flex: 1 1 0;
@@ -55,17 +58,20 @@
     max-width: 850px;
     }
 
+/* div forces content to next line */
 .break {
     flex-basis: 100%;
     height: 0;
 }
 
+/* jank way of centering graph horizontally and vertically */
 .centre-plot {
     display: table-cell;
     vertical-align: middle;
     transform: translateY(-50%);
 }
 
+/* set font */
 h1, h2, p, fine-print, li {
     font-family: jubilat, serif;
 }
@@ -94,6 +100,7 @@ li {
     padding-bottom: 1em;
 }
 
+/* make it ✨responsive✨ so it doesn't look like poop on smaller screens */
 @media only screen and (max-width: 1370px) {
     .flex-item:nth-child(odd) {
         width: 5%;

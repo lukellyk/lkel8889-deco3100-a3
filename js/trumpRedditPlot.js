@@ -29,9 +29,12 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
         y: redditAvg,
         mode: 'markers',
         type: 'scatter',
+        // define custome data labels so that it actually make sense
+        // couln't put tweets in labels because plotly doesn't have a text wrap method (wtf?)
         hovertemplate: '<b>Posted: </b> %{text}' + '<br><b>Sentiment: </b> %{x}' + '<br><b>Average Reddit Score: </b> %{y}<extra></extra>',
         text: datetime,
         marker: {
+            // set up colour scale
             colorscale: 'Bluered',
             color: sentiment,
             reversescale: true,
@@ -48,6 +51,7 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
             }
         },
         yaxis: {
+            // define custom range so outliers don't make graph somewhat indecipherable
             range: [0,2500],
             title: {
                 text: 'Avg Reddit Score of Post',
@@ -63,6 +67,7 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
                     size: 20
                 }
             },
+            // force range to zoom data in more
             range: [-1, 1]
         },
         hoverlabel: {
@@ -71,6 +76,7 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
             },
             bordercolor: "rgba(255, 255, 255, 0)"
         },
+        // make background transparent
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
     };
@@ -80,7 +86,7 @@ function makePlot1(datetime,redditCount,tweet,redditAvg,sentiment){
         scrollZoom: true,
         displayModeBar: false,
     };
-
+    // create plot
     Plotly.newPlot('trumpRedditPlot', data, layout, config);
 }
 

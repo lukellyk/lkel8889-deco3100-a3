@@ -19,7 +19,7 @@ function processData3(allRows) {
     // initiate plot creation function
     makePlot3(days,trump,biden);
 } 
-
+// make traces
 function makePlot3(days,trump,biden){
     var traces = [
         {
@@ -36,7 +36,7 @@ function makePlot3(days,trump,biden){
             }
         }
     ];
-
+    // define layout
     var layout = {
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
@@ -66,7 +66,7 @@ function makePlot3(days,trump,biden){
         scrollZoom: true,
         displayModeBar: false,
     };
-
+    // make plot
     Plotly.newPlot('trumpBiden', traces, layout, config);
 }
 

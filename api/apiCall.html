@@ -8,12 +8,13 @@
     <title>Reddit Counter</title>
 </head>
 <body>
-
+    <!-- set up buttons -->
     <button onclick="loadCSV()">Load Data</button>
     <button onclick="printObj(dataObj)">Show JSON in Console</button>
     <button onclick="exportToJsonFile(dataObj.tweets)">Export to JSON</button>
 
     <script>
+        // load variables and pull csv file
         let dataSource = 'data/trump_presidential_tweets.csv'
         let apiPrefix = 'https://api.reddit.com/search?q=url:'
         let twitterPrefix = 'https://twitter.com/realDonaldTrump/status/'
@@ -22,10 +23,12 @@
             tweets: {}
         }
         let objCounter = 0;
+        // sleep function to slow down API request (don't ban me pls reddit)
         const sleep = (milliseconds) => {
             return new Promise(resolve => setTimeout(resolve, milliseconds))
         }
 
+        // load and parse csv
         function loadCSV () {
             d3.csv(dataSource, function(d) {
                 return {
@@ -34,7 +37,7 @@
                     text : d.text,
                 };
             }).then(async function(data) {
-
+                // call api 4 times every second
                 for (let i = 0; i < data.length; i++){
                     getReddit(data[i].id,data[i].datetime,data[i].text)
 
@@ -42,12 +45,13 @@
 
                     await sleep(250)
                 }
-
+                // announce it is done
                 console.log("Done!")
 
             });
         }
 
+        // get data per tweet
         async function getReddit(tweetID, datetime, tweetText) {
             let url = apiPrefix+twitterPrefix+tweetID;
             let response = await fetch(url);
@@ -55,6 +59,7 @@
             averageUpvote(data,tweetID, datetime, tweetText);
         }
 
+        // analyse returned object and spit out averages and totals
         function averageUpvote(data, tweetID, datetime, tweetText) {
             let scores = [];
 
@@ -66,7 +71,7 @@
 
             pushToObject(data.data.children.length,tweetID,avgScore,datetime,tweetText);
         }
-
+        // append the return to the data object
         function pushToObject(count,tweetID,avgScore,datetime,tweetText) {
 
             dataObj.tweets[objCounter] = {
@@ -87,6 +92,7 @@
 
         "use strict";
 
+        // export to JSON because exporting to CSV is impossible apparently
         function exportToJsonFile(jsonData) {
             let dataStr = JSON.stringify(jsonData);
             let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);

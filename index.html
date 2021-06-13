@@ -14,8 +14,11 @@
 <body>
     <div class="flex-container">
         <div class="flex-item"></div>
+        <!-- centre in flex items -->
         <div class="flex-item">
+            <!-- container within flex box -->
             <div class="inner-flex-container">
+                <!-- each 'box' is a flex box with a different background colour -->
                 <div class="inner-flex-item" style="background-color: #A8DADC;">
                     <h1>Trump & Reddit 🇺🇸</h1><br>
                     <h2 style="color: #ffffff;">By Luke Kelly | lkel8889</h2>
@@ -27,6 +30,7 @@
                         This as well as a myriad of other acts of disrespect of Twitter’s terms of service resulted in him being banned from the platform on the 8th of January 2021 after multiple warnings. The company cited their ‘Public Interest Framework’ and accused the former president of inciting violence shortly after it was announced that he would not be returning to the oval office for a second term. As a result of this Washington D.C saw unprecedented riots in support of Trump all while he was claiming that the election had been stolen from him whilst citing discredited sources that have been condemned by news outlets as well as federal and state courts. These riots resulted in the storming of the White House and the evacuation of the US House of Representatives and the Senate, reminiscent of a terrorist level threat.
                     </p>
                 </div>
+                <!-- forces next flexbox to next line -->
                 <div class="break"></div>
                 <div class="inner-flex-item" style="background-color: #457B9D;">
                     <p>
@@ -35,10 +39,12 @@
                         In the case of this case study, due to the fact that the tweets have been deleted as a result of Donald Trump being banned, I analysed the statistics of said tweets when posted on Reddit due to their permalinks still existing. The data takes into account the amount of times it was posted on Reddit and the average score it received across these posts. Examples of such posts include news related subreddits to subreddits that support Trump (excluding r/DonaldTrump, banned Jan 2021) to subreddits run by bots that simply posted his tweets whenever a new one was made. The search was made across almost 17,000 tweets and mapped against the precalculated ‘sentiment’ value which ranges from -1 (low sentiment/negative connotations) to 1 (vice-versa).
                     </p>
                 </div>
+                <!-- use image as background for one of the boxes -->
                 <div class="inner-flex-item" style="background: url('https://github.com/lukellyk/lkel8889-deco3100-a3/raw/9bc1bfe39060ad8f0a1eea346f8f8501ee68bbb3/img/reddit.jpg') no-repeat; background-size: cover; background-position: center center;">
                 </div>
                 <div class="break"></div>
                 <div class="inner-flex-item" style="background-color: #A8DADC; display: table;">
+                    <!-- load scatter plot -->
                     <div class="centre-plot" id="trumpRedditPlot" style="min-height: 100%;"></div>
                     <script src='js/trumpRedditPlot.js'></script>
                 </div>
@@ -59,11 +65,13 @@
                     Overall, it can be seen that the existence of this constant support, opposition and tension with regards to the President is a cross section of society during his term. It opened up the floor on Reddit for these debates between left and right wing supporters to fight for whatever opinion they believed to be correct, with many of them reaching the ‘front page’ (most popular posts for that day across Reddit) of the site, attracting more and more participants in a exponential increase until the next topic came across for debate.</p>
                 </div>
                 <div class="inner-flex-item" style="background-color: #1D3557; display: table;">
+                    <!-- load trump's reddit score over presidency -->
                     <div class="centre-plot" id="scoreOverTime" style="height: 100%;"></div>
                     <script src='js/scoreOverTime.js'></script>
                 </div>
                 <div class="break"></div>
                 <div class="inner-flex-item" style="background-color: #A8DADC; display: table;">
+                    <!-- load trump v biden -->
                     <div class="centre-plot" id="trumpBiden" style="height: 100%;"></div>
                     <script src='js/trumpBiden.js'></script>
                 </div>

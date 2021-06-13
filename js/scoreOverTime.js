@@ -19,6 +19,7 @@ function processData2(allRows) {
     makePlot2(date,redditAvg);
 } 
 
+// create datapoints and traces
 function makePlot2(date,redditAvg){
     var data = [
         {
@@ -31,7 +32,7 @@ function makePlot2(date,redditAvg){
             }
         }
     ];
-
+    // define the layout
     var layout = {
         title: {
             text: "Average Reddit Score Over Time",
@@ -61,6 +62,7 @@ function makePlot2(date,redditAvg){
                 size: 20
             }
         },
+        // make bg transparent
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
     };
@@ -71,7 +73,7 @@ function makePlot2(date,redditAvg){
         scrollZoom: true,
         displayModeBar: false,
     };
-
+    // make plot
     Plotly.newPlot('scoreOverTime', data, layout, config);
 }
 
